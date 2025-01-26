@@ -50,3 +50,10 @@ button:hover {
 button:active {
   transform: scale(0.98);
 }
+
+.podcastBox {
+  margin-top: 50px;
+  background-color: black;
+  border: solid white;
+  border-radius: 8px;
+}
