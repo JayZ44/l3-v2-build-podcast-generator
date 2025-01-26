@@ -1,8 +1,22 @@
-# React + Vite
+# AI Podcast Generator!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
 
-Currently, two official plugins are available:
+This is an AI-powered podcast generator application that creates podcast-style audio content based on your input text.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What it Does
+
+- Takes text input from users
+- Provides an easy-to-use interface for content creation
+
+## How to Use
+
+1. Type your desired text content into the text input box
+2. Press the "Generate Podcast" button to generate the podcast
+3. Wait for your request to be processed
+4. Listen to your AI-generated podcast!
+
+## Coming soon!
+
+- Convert text into natural-sounding speech
+- Generate podcast-style audio content
