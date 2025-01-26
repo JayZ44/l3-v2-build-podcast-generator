@@ -17,7 +17,7 @@ const generateAIResponse = async (prompt) => {
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
       systemInstruction:
-        "You are a podcast generator. Users will input a text, audio, and/or image prompt, and you will output text resembling a podcast according to the prompt(s).",
+        "You are a podcast generator. Users will input a text, audio, and/or image prompt, and you will output text resembling a podcast according to the prompt(s). In your response, type as if you were writing a script on paper.",
     });
 
     // Generate content
@@ -27,7 +27,7 @@ const generateAIResponse = async (prompt) => {
           role: "user",
           parts: [
             {
-              text: `${prompt}`,
+              text: prompt,
             },
           ],
         },
@@ -38,12 +38,16 @@ const generateAIResponse = async (prompt) => {
       },
     });
 
+    let fullResponse = "";
     for await (const chunk of result.stream) {
       const chunkText = chunk.text();
-      process.stdout.write(chunkText);
+      fullResponse += chunkText;
     }
+
+    return fullResponse;
   } catch (error) {
     console.error("Error generating AI response:", error.message);
+    throw error; // Re-throw to handle in controller
   }
 };
 
