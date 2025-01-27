@@ -53,7 +53,7 @@ const Form = () => {
       <button type="submit" onClick={handleSubmit} disabled={isLoading}>
         {isLoading ? "Generating..." : "Generate Podcast"}
       </button>
-      <TextToSpeech />
+      <TextToSpeech podcast={podcast} />
       <div className="podcastBox">
         <ReactMarkdown>{podcast}</ReactMarkdown>
       </div>

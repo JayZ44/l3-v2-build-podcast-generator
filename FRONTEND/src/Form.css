@@ -32,6 +32,7 @@ input[type="text"]:focus {
 
 /* Button styles */
 button {
+  margin: 5px;
   padding: 0.8rem 1.5rem;
   font-size: 1.1rem;
   color: white;
