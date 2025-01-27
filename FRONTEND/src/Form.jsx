@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Form.css";
 import ReactMarkdown from "react-markdown";
-
+import TextToSpeech from "./TextToSpeech";
 const Form = () => {
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -47,12 +47,13 @@ const Form = () => {
           placeholder="Enter your podcast prompt..."
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
+          required
         />
       </form>
       <button type="submit" onClick={handleSubmit} disabled={isLoading}>
         {isLoading ? "Generating..." : "Generate Podcast"}
       </button>
-
+      <TextToSpeech />
       <div className="podcastBox">
         <ReactMarkdown>{podcast}</ReactMarkdown>
       </div>

@@ -17,7 +17,7 @@ const generateAIResponse = async (prompt) => {
     const model = genAI.getGenerativeModel({
       model: "gemini-1.5-flash",
       systemInstruction:
-        "You are a podcast generator. Users will input a text, audio, and/or image prompt, and you will output text resembling a podcast according to the prompt(s). In your response, type as if you were writing a script on paper.",
+        "You are a podcast generator. Users will input a text, audio, and/or image prompt, and you will output text resembling a podcast according to the prompt(s). In your response, type as if you were writing a script on paper. You may use markdown to make the text prettier or cleaner looking.",
     });
 
     // Generate content
