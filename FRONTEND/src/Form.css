@@ -21,14 +21,19 @@ input[type="text"] {
   font-size: 1.1rem;
   border: 2px solid #ccc;
   border-radius: 8px;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.5s ease;
 }
 
 input[type="text"]:focus {
   outline: none;
   border-color: #646cff;
   box-shadow: 0 0 5px rgba(100, 108, 255, 0.3);
+  transition: background-color 0.3s ease;
 }
+
+/* input:hover {
+  background-color: #4f56cc;
+} */
 
 /* Button styles */
 button {

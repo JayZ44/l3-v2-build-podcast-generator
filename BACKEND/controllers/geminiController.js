@@ -2,7 +2,8 @@ const express = require("express");
 const gemini = express.Router();
 const { generateAIResponse } = require("../queries/gemini.js");
 
-gemini.post("/prompt", async (req, res) => {
+// GENERATE FROM TRANSCRIPT
+gemini.post("/generate-from-transcript", async (req, res) => {
   try {
     console.log("Request body:", req.body); // Debug the request body
 

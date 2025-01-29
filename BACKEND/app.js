@@ -18,7 +18,7 @@ app.use((req, res, next) => {
 //GEMINI CONTROLLER
 
 const geminiController = require("./controllers/geminiController.js");
-app.use("/generate", geminiController);
+app.use("/api", geminiController);
 
 // ROUTES
 app.get("/", (req, res) => {

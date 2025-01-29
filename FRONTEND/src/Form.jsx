@@ -2,18 +2,22 @@ import React, { useState } from "react";
 import "./Form.css";
 import ReactMarkdown from "react-markdown";
 import TextToSpeech from "./TextToSpeech";
+import { ImageUpload } from "./ImageUpload";
 const Form = () => {
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [podcast, setPodcast] = useState("");
 
   const handleSubmit = async () => {
-    if (!prompt.trim()) return;
+    if (!prompt.trim()) {
+      alert("Please enter a prompt");
+      return;
+    }
 
     setIsLoading(true);
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BASE_API_URL}/generate/prompt`,
+        `${import.meta.env.VITE_BASE_API_URL}/api/generate-from-transcript`,
         {
           method: "POST",
           headers: {
@@ -41,7 +45,7 @@ const Form = () => {
 
   return (
     <div>
-      <form className="card" onSubmit={(e) => e.preventDefault()}>
+      <form onSubmit={(e) => e.preventDefault()}>
         <input
           type="text"
           placeholder="Enter your podcast prompt..."
@@ -50,6 +54,7 @@ const Form = () => {
           required
         />
       </form>
+      <ImageUpload />
       <button type="submit" onClick={handleSubmit} disabled={isLoading}>
         {isLoading ? "Generating..." : "Generate Podcast"}
       </button>

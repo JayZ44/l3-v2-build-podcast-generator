@@ -3,9 +3,11 @@ import { useState } from "react";
 
 const TextToSpeech = ({ podcast }) => {
   const [readSpeed, setReadSpeed] = useState(1);
+  const [readPitch, setReadPitch] = useState(1);
   const speak = (text) => {
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.rate = readSpeed;
+    utterance.pitch = readPitch;
     window.speechSynthesis.speak(utterance);
   };
 
@@ -30,17 +32,31 @@ const TextToSpeech = ({ podcast }) => {
           <button onClick={resumeSpeech}>Resume</button>
           <button onClick={stopSpeech}>Stop</button>
         </span>
-        <input
-          type="range"
-          min="0.1"
-          max="3.5"
-          step="0.1"
-          defaultValue="1"
-          onChange={(event) => {
-            setReadSpeed(event.target.value);
-          }}
-        />
-        <div>Read Speed: {readSpeed}</div>
+        <span>
+          <input
+            type="range"
+            min="0.5"
+            max="2"
+            step="0.1"
+            defaultValue="1"
+            onChange={(event) => {
+              setReadSpeed(event.target.value);
+            }}
+          />
+          <div>Read Speed: {readSpeed}</div>
+
+          <input
+            type="range"
+            min="0.5"
+            max="2"
+            step="0.1"
+            defaultValue="1"
+            onChange={(event) => {
+              setReadPitch(event.target.value);
+            }}
+          />
+          <div>Voice Pitch: {readPitch}</div>
+        </span>
       </div>
     </div>
   );
